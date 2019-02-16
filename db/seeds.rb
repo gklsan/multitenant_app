@@ -19,15 +19,7 @@ end
 def seed_department_and_seed
   Company.pluck(:subdomain).each_with_index do |subdomain, idx|
     Apartment::Tenant.switch(subdomain) do
-
       user_start_at = (idx + 1) * 10
-
-      # ((user_start_at - 9)..(user_start_at - 6)).each_with_index do |i, idx|
-      #   puts "idx#{idx}"
-      #   name = "#{NAMES_OF_DEPARTMENT[idx]}"
-      #   Department.find_or_create_by(name: name, description: "#{name} description.")
-      # end
-      #
       NAMES_OF_DEPARTMENT.each do |dname|
         department = Department.find_by_name(dname)
         department ||= Department.create(name: dname, description: "#{dname} description.")
@@ -49,32 +41,6 @@ def seed_department_and_seed
       end
     end
   end
-
-  # Company..each_with_index do |company, idx|
-  #   binding.pry
-  #   puts "-------#{idx}"
-    # Apartment::Tenant.switch(company.subdomain) do
-
-
-      # NAMES_OF_DEPARTMENT.each do |dname|
-      #   Department.create(name: dname, description: "#{dname} description.")
-      # end
-      #
-      # NUMBER_OF_USERS.each do |j|
-      #   j = (j * idx + 1) + 1
-      #   user = User.create(name: "User #{j}",
-      #                      phone: "577689403#{j}",
-      #                      address: "USA#{j}",
-      #                      salary: rand(100000..500000),
-      #                      bonus: rand(15000..50000),
-      #                      department: Department.all.sample,
-      #                      email: "user#{j}@user.user",
-      #                      password: "test1234")
-      #   puts user.name
-      #
-      # end
-    # end
-  # end
 end
 
 create_company
