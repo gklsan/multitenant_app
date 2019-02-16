@@ -1,34 +1,29 @@
-<p id="notice"><%= notice %></p>
+<h1 class="text-center"><%= @company.name.upcase %></h1>
+<table class="table table-striped">
+  <tr>
+    <td><strong>Email:</strong></td>
+    <td> <%= @company.email %></td>
+  </tr>
+  <tr>
+    <td><strong>Address:</strong></td>
+    <td> <%= @company.address %></td>
+  </tr>
+  <tr>
+    <td><strong>Phone:</strong></td>
+    <td> <%= @company.phone %></td>
+  </tr>
+  <tr>
+    <td><strong>License number:</strong></td>
+    <td> <%= @company.license %></td>
+  </tr>
+  <tr>
+    <td><strong>Domain name:</strong></td>
+    <td> <%= @company.subdomain %></td>
+  </tr>
+</table>
+<%= link_to 'Back', root_path, class: 'btn btn-primary' %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @company.name %>
-</p>
+<% if current_user_has_role?('admin') %>
+  <%= link_to 'Edit Dtails', edit_company_path(@company), class: 'btn btn-primary' %>
+<% end %>
 
-<p>
-  <strong>Email:</strong>
-  <%= @company.email %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @company.address %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @company.phone %>
-</p>
-
-<p>
-  <strong>License:</strong>
-  <%= @company.license %>
-</p>
-
-<p>
-  <strong>Subdomain:</strong>
-  <%= @company.subdomain %>
-</p>
-
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>

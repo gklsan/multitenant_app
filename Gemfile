@@ -56,3 +56,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'apartment'
 gem 'devise'
+gem 'pry-rails'
+gem "rolify"
+gem 'bootstrap'
+gem 'jquery-rails'
