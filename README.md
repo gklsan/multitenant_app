@@ -1,2 +1,2 @@
-# Multitanant Application
+# Multi-tanant Application
 
